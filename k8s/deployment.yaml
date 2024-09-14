@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: web
 spec:
-  replicas: 5  # Adiciona o número de réplicas aqui
+  replicas: 10  # Adiciona o número de réplicas aqui
   selector:
     matchLabels:
       app: web
