@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: web
-        image: edymonte/primeira-pipeline-cicd
+        image: edymonte/aula-primeira-pipeline-cicd
         ports:
         - containerPort: 5000
 --- 
