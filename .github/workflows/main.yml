@@ -31,3 +31,4 @@ jobs:
       manifests: k8s/deployment.yaml
       images: edymonte/aula-primeira-pipeline:v${{ github.run_number }} 
       secrets: inherit
+#############################################
