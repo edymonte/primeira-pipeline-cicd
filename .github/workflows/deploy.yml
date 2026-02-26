@@ -6,7 +6,7 @@ on:
         type: string
         required: true
         description: "Arquivos e Manifesto para deploy"
-      imagens:
+      images:
         type: string
         required: true
         description: "Imagens que serão alteradas nos Manifestos"
@@ -25,5 +25,5 @@ jobs:
       uses: Azure/k8s-deploy@v5
       with:
         manifests: ${{inputs.manifests}}
-        images: ${{inputs.imagens}}
+        images: ${{inputs.images}}
           # edymonte/aula-primeira-pipeline:v${{ github.run_number }}
