@@ -24,11 +24,10 @@ jobs:
           edymonte/aula-primeira-pipeline:v${{ github.run_number }} 
           edymonte/aula-primeira-pipeline:latest 
   CD:
-    runs-on: ubuntu-latest
     needs: [CI]
     uses: edymonte/primeira-pipeline-cicd/.github/workflows/deploy.yml@main
     with:
       manifests: k8s/deployment.yaml
       images: edymonte/aula-primeira-pipeline:v${{ github.run_number }} 
-      secrets: inherit
+    secrets: inherit
 #############################################
