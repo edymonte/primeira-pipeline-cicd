@@ -1,6 +1,15 @@
 name: Deploy no Kubernetes
 on:
   workflow_call
+    inputs:
+      manifests:
+        type: string
+        required: true
+        description: "Arquivos e Manifesto para deploy"
+      imagens:
+        type: string
+        required: true
+        description: "Imagens que serão alteradas nos Manifestos"
 jobs:
   deploy-k8s:
     runs-on: ubuntu-latest
@@ -15,7 +24,6 @@ jobs:
     - name: Execução do Manifesto
       uses: Azure/k8s-deploy@v5
       with:
-        manifests: |
-          ./k8s/deployment.yaml
-        images: |
-          edymonte/aula-primeira-pipeline:v${{ github.run_number }}
+        manifests: ${{inputs.manifests}}
+        images: ${{inputs.imagens}}
+          # edymonte/aula-primeira-pipeline:v${{ github.run_number }}
