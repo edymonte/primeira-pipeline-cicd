@@ -1,6 +1,6 @@
 name: Deploy no Kubernetes
 on:
-  workflow_call
+  workflow_call:
     inputs:
       manifests:
         type: string
@@ -26,4 +26,3 @@ jobs:
       with:
         manifests: ${{inputs.manifests}}
         images: ${{inputs.images}}
-          # edymonte/aula-primeira-pipeline:v${{ github.run_number }}
