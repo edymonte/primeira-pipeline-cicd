@@ -27,6 +27,15 @@ jobs:
       with:
         method: kubeconfig
         kubeconfig: ${{ secrets.K8S_CONFIG }}
+    - name: Verifica se K8S_CONFIG está disponível
+      run: |
+        if [ -z "${K8S_CONFIG}" ]; then
+          echo "K8S_CONFIG vazio (não chegou ao job)"
+          exit 1
+        fi
+        echo "K8S_CONFIG OK (tamanho: $(echo -n "$K8S_CONFIG" | wc -c) bytes)"
+      env:
+        K8S_CONFIG: ${{ secrets.K8S_CONFIG }} 
     - name: Execução do Manifesto
       uses: Azure/k8s-deploy@v5
       with:
