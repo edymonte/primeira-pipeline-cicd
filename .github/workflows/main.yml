@@ -23,7 +23,7 @@ jobs:
           edymonte/aula-primeira-pipeline:v${{ github.run_number }} 
           edymonte/aula-primeira-pipeline:latest 
   CD-homolog:
-    needs: [CI]
+    #needs: [CI]
     uses: edymonte/primeira-pipeline-cicd/.github/workflows/deploy.yml@main
     with:
       manifests: k8s/deployment.yaml
