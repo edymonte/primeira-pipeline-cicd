@@ -26,8 +26,10 @@ jobs:
     needs: [CI]
     uses: edymonte/primeira-pipeline-cicd/.github/workflows/deploy.yml@main
     with:
-      manifests: k8s/deployment.yaml
-      images: edymonte/aula-primeira-pipeline:v${{ github.run_number }}
+      manifests: |
+        k8s/deployment.yaml
+      images: |
+        edymonte/aula-primeira-pipeline:v${{ github.run_number }}
       environment: homologacao
     secrets: inherit
     
@@ -43,7 +45,9 @@ jobs:
     needs: [test-Ambiente]
     uses: edymonte/primeira-pipeline-cicd/.github/workflows/deploy.yml@main
     with:
-      manifests: k8s/deployment.yaml
-      images: edymonte/aula-primeira-pipeline:v${{ github.run_number }}
-      environment: homologacao
+      manifests: |
+        k8s/deployment.yaml
+      images: |
+        edymonte/aula-primeira-pipeline:v${{ github.run_number }}
+      environment: producao
     secrets: inherit 
